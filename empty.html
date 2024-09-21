@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otthoni teendők</title>
+    <script src="mySecondScript.js"></script>
+</head>
+<body>
+    <div>
+        <p>Teendők listája</p>
+        <input id="teendokListaja">
+    </div>
+
+    <button onclick="hozzaad()">Listához hozzáad</button>
+    
+    <button onclick="reset()">Reset lista</button>
+
+
+    <h4>Meg kell csinálni <span id="darab"></span> dolgot:</h4>
+    <ul id="teendok">
+
+    </ul>
+    
+</body>
+<script>
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+let dolgok = ['mosogatás',' elpakolás',' takarítás']
+
+let db = dolgok.length
+
+function reset() {
+    console.log(dolgok)
+    console.log('Dolgok változó:',dolgok)
+    console.log('Ez a takarítás?',dolgok[2])
+
+    let tevLista = document.getElementById("teendok")
+    tevLista.innerHTML = ''
+
+    for (dolog of dolgok) {
+        console.log(dolog)
+        tevLista.innerHTML += `<li>${dolog}</li>`
+    }
+
+}
+
+
+    function hozzaad() {
+        let tevekenysegNeve = document.getElementById('teendokListaja').value
+        let tevLista = document.getElementById('teendok')
+        tevLista.innerHTML = tevLista.innerHTML + `<li>${tevekenysegNeve}</li>`
+        db += 1
+
+        document.getElementById("darab").innerHTML = db
+
+        console.log('darab;',db)
+    }
